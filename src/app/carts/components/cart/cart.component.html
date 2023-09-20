@@ -1,1 +1,56 @@
-<p>cart works!</p>
+<main class="cart">
+  <div class="cart-header">
+    <section>
+      <h1 style="color: red">Shopping cart</h1>
+      <h3>
+        you have <span style="color: red">{{ cartProducts.length }}</span> items
+        in your cart
+      </h3>
+    </section>
+    <section>
+      <button type="button" (click)="clearCart()">Clear shopping cart</button>
+    </section>
+  </div>
+  <div class="cart-body">
+    <table class="cart-body-table">
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let obj of cartProducts; let index = index">
+        <td>
+          <img [src]="obj.item.image" alt="obj.title" />
+        </td>
+        <td>{{ obj.item.title }}</td>
+        <td>{{ obj.item.price }}</td>
+        <td>
+          <button (click)="incAmount(index)" min="1">+</button>
+          <input
+            type="number"
+            style="width: 40px"
+            (change)="changeAmount()"
+            [(ngModel)]="obj.quantity"
+          />
+          <button (click)="decAmount(index)" min="1">-</button>
+        </td>
+        <td>
+          {{ obj.item.price * obj.quantity }}
+        </td>
+        <td>
+          <button type="button" (click)="deleteProduct(index)">Delete</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="cart-footer">
+    <p>Total : {{ totalPrice }} LE</p>
+    <button type="button" (click)="orderProducts()">Order now</button>
+  </div>
+</main>
+<main class="notification" *ngIf="isOrderSuccess">
+  <strong>Well done!</strong> your order is successfully send
+</main>

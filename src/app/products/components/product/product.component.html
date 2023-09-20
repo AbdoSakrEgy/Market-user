@@ -7,16 +7,12 @@
     <p>{{ product.description }}</p>
   </section>
   <section class="cart-footer">
-    <button
-      type="button"
-      *ngIf="!isProductInCart"
-      (click)="isProductInCart = true"
-    >
+    <button type="button" *ngIf="!isAddButton2" (click)="isAddButton2 = true">
       Add cart
     </button>
-    <div style="display: flex" *ngIf="isProductInCart">
-      <input type="number" style="width: 50%" [(ngModel)]="amount" />
-      <button type="button" (click)="add()">add</button>
+    <div style="display: flex" *ngIf="isAddButton2">
+      <input type="number" style="width: 50%" [(ngModel)]="amount" min="1" />
+      <button type="button" (click)="add(); isAddButton2 = false">add</button>
     </div>
     <span>{{ product.price }}</span>
   </section>

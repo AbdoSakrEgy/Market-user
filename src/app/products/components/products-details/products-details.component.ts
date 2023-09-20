@@ -23,7 +23,6 @@ export class ProductsDetailsComponent {
     this.isLoading = true;
     this.productsService.getProductByID(this.id).subscribe((res) => {
       this.product = res;
-      console.log(res);
     });
     this.isLoading = false;
   }

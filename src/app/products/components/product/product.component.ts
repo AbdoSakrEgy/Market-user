@@ -8,7 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class ProductComponent {
   @Input() product: any = {};
   @Output() item = new EventEmitter();
-  isProductInCart: boolean = false;
+  isAddButton2: boolean = false;
   amount: number = 0;
 
   ngOnInit() {}
