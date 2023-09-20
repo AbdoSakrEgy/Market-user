@@ -1,0 +1,23 @@
+<div class="cart">
+  <section class="cart-header" [routerLink]="['/details', product.id]">
+    <img [src]="product.image" [alt]="product.title" />
+    <h5>{{ product.title }}</h5>
+  </section>
+  <section class="cart-body" [routerLink]="['/details', product.id]">
+    <p>{{ product.description }}</p>
+  </section>
+  <section class="cart-footer">
+    <button
+      type="button"
+      *ngIf="!isProductInCart"
+      (click)="isProductInCart = true"
+    >
+      Add cart
+    </button>
+    <div style="display: flex" *ngIf="isProductInCart">
+      <input type="number" style="width: 50%" [(ngModel)]="amount" />
+      <button type="button" (click)="add()">add</button>
+    </div>
+    <span>{{ product.price }}</span>
+  </section>
+</div>

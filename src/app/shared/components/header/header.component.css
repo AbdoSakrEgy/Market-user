@@ -1,0 +1,19 @@
+nav {
+  background-color: #950b0b;
+  color: white;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+.container section {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.container section h4:hover {
+  cursor: pointer;
+}
