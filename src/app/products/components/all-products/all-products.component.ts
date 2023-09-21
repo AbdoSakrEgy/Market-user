@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-all-products',
@@ -7,8 +8,8 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./all-products.component.css'],
 })
 export class AllProductsComponent {
-  products: any[] = [];
-  categories: any[] = [];
+  products: Product[] = [];
+  categories: string[] = [];
   isLoading: boolean = false;
   cartProducts: any[] = [];
 
