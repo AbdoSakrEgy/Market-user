@@ -1,6 +1,13 @@
-.categories{
-  margin-bottom: 10px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .categories-list {
+    @apply border rounded-md px-3 py-2 outline-none mt-3 hover:cursor-pointer;
+  }
 }
-.categories-list{
-  width: 300px;
+
+.categories {
+  margin-bottom: 20px;
 }

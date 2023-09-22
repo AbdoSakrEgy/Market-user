@@ -1,42 +1,55 @@
-.cart {
-  display: flex;
-  flex-flow: column;
+.carts-container {
+  @apply my-5 mx-20;
+}
+/* ======================== header ======================== */
+.carts-container h1 {
+  @apply text-4xl mb-3 text-[#950b0b];
 }
 .cart-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @apply flex justify-between items-center;
 }
-.cart-body-table {
-  width: 100%;
-  margin-top: 20px;
-  text-align: left;
+.cart-header button {
+  @apply text-red-500 rounded-md bg-gray-100 px-2 py-1;
 }
-.cart-body-table tr td,
-th {
-  padding-bottom: 30px;
+/* ======================== body ======================== */
+.cart-body {
+  /* @apply; */
 }
+table {
+  @apply w-full text-left my-10;
+}
+table th,
 td {
-  width: 100px;
-  overflow: auto;
+  @apply border-b py-3;
 }
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.table-image-container {
+  @apply w-10 h-10 rounded-full overflow-hidden;
+}
+.table-image {
+  @apply object-cover;
+}
+.cart-body .cart-body-quantity {
+  @apply flex justify-start gap-3 items-center;
+}
+.cart-body .cart-body-quantity button {
+  @apply flex justify-center items-center rounded-md bg-black text-white w-5 h-5;
+}
+.cart-body .cart-body-quantity input {
+  @apply w-24 border outline-none text-center rounded-md;
+}
+.cart-body .cart-body-delete {
+  @apply rounded-md bg-red-500 text-white px-2 py-1;
+}
+/* ======================== footer ======================== */
 .cart-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
+  @apply flex justify-end items-center gap-3;
 }
-img {
-  width: 100%;
-  height: 50px;
-  object-fit: cover;
+.cart-footer button {
+  @apply rounded-md bg-green-500 text-white px-2 py-1;
 }
-/*  */
 .notification {
-  background-color: #a1dac5;
-  color: #1f7c59;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 5px;
+  @apply bg-[#a1dac5] text-[#1f7c59] p-3 mt-10 rounded-md;
 }

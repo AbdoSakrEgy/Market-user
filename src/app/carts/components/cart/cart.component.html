@@ -1,4 +1,4 @@
-<main class="cart">
+<!-- <main class="cart">
   <div class="cart-header">
     <section>
       <h1 style="color: red">Shopping cart</h1>
@@ -53,4 +53,61 @@
 </main>
 <main class="notification" *ngIf="isOrderSuccess">
   <strong>Well done!</strong> your order is successfully send
+</main> -->
+<!-- ///////////////////////////////////////////////////////////////////////// -->
+
+<main class="carts-container">
+  <h1>Shopping cart</h1>
+  <div class="cart-header">
+    <p>
+      You have <span class="text-[#950b0b]">{{ cartProducts.length }}</span> items
+      in your cart
+    </p>
+    <button (click)="clearCart()">Clear shopping cart</button>
+  </div>
+  <div class="cart-body">
+    <table>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let obj of cartProducts; let index = index">
+        <td>
+          <div class="table-image-container">
+            <img [src]="obj.item.image" alt="img" class="table-image" />
+          </div>
+        </td>
+        <td>{{ obj.item.title }}</td>
+        <td>{{ obj.item.price }}</td>
+        <td>
+          <section class="cart-body-quantity">
+            <button (click)="incAmount(index)">+</button>
+            <input
+              type="number"
+              [(ngModel)]="obj.quantity"
+              (change)="changeAmount()"
+            />
+            <button (click)="decAmount(index)">-</button>
+          </section>
+        </td>
+        <td>{{ obj.item.price * obj.quantity }}</td>
+        <td>
+          <button class="cart-body-delete" (click)="deleteProduct(index)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="cart-footer">
+    <p>Total : {{ totalPrice }} LE</p>
+    <button (click)="orderProducts()">Order now</button>
+  </div>
+  <div class="notification" *ngIf="isOrderSuccess">
+    <strong>Well done!</strong> your order is successfully send
+  </div>
 </main>

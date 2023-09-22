@@ -23,7 +23,7 @@ export class ProductsDetailsComponent {
     this.isLoading = true;
     this.productsService.getProductByID(this.id).subscribe((res) => {
       this.product = res;
+      this.isLoading = false;
     });
-    this.isLoading = false;
   }
 }

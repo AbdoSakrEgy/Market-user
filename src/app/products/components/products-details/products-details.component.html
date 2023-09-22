@@ -1,14 +1,12 @@
-<main class="container">
-  <span *ngIf="!isLoading">
-    <img [src]="product.image" [alt]="[product.category]" />
-    <section class="container-details">
-      <p><strong>Title</strong> : {{ product.title }}</p>
-      <p><strong>Category</strong> : {{ product.category }}</p>
-      <p><strong>Description</strong> : {{ product.description }}</p>
-      <p><strong>Rate</strong> : {{ product.rating?.rate }}</p>
-      <p><strong>Count</strong> : {{ product.rating?.count }}</p>
-      <p><strong>Price</strong> : {{ product.price }}</p>
-    </section>
-  </span>
+<main class="product-details-container">
+  <img [src]="product.image" [alt]="[product.category]" *ngIf="!isLoading" />
   <app-spinner [isLoading]="isLoading"></app-spinner>
+  <div class="product-details-data">
+    <p><strong>Title :</strong>{{ product.title }}</p>
+    <p><strong>Category :</strong>{{ product.category }}</p>
+    <p><strong>Description :</strong>{{ product.description }}</p>
+    <p><strong>Rate :</strong>{{ product.rating?.rate }}</p>
+    <p><strong>Count :</strong>{{ product.rating?.rate }}</p>
+    <p><strong>Price :</strong>{{ product.price }}</p>
+  </div>
 </main>

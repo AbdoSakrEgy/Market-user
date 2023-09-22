@@ -1,31 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .cart {
-  border: 1px solid black;
-  width: 300px;
-  height: 400px;
+  @apply flex flex-col border rounded-lg w-56 h-96 hover:scale-[1.03] transition duration-200 ease-in-out;
 }
 .cart-header {
-  height: 50%;
-  display: flex;
-  flex-flow: column;
+  @apply h-[60%] text-xs hover:cursor-pointer;
 }
 .cart-header img {
-  max-width: 100%;
-  height: 70%;
-  border: 1px solid gray;
-  object-fit: contain;
+  @apply h-[80%] m-auto p-3;
 }
-.cart-header h5 {
-  background-color: rgb(224, 224, 224);
-  margin: 0;
-  height: 30%;
+.cart-header div {
+  @apply px-3 flex justify-start items-center h-[20%] bg-[#ddd];
+}
+.cart-header h1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .cart-body {
-  height: 30%;
-  overflow: auto;
+  @apply px-3 py-2 h-[25%] text-xs hover:cursor-pointer;
+}
+.cart-body-description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 }
 .cart-footer {
-  height: 15%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @apply h-[15%] flex justify-between items-center px-3;
+}
+.btn-1 {
+  @apply rounded-md bg-green-400 text-white w-20 p-1;
+}
+/*  */
+.cart-footer-input {
+  @apply border text-xs w-14 rounded-md outline-none p-1;
+}
+.btn-2 {
+  @apply rounded-md bg-green-400 text-white w-10 text-sm p-1;
 }

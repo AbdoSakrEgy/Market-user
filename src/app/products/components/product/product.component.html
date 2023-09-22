@@ -1,19 +1,35 @@
-<div class="cart">
-  <section class="cart-header" [routerLink]="['/details', product.id]">
+<main class="cart">
+  <div class="cart-header" [routerLink]="['/details', product.id]">
     <img [src]="product.image" [alt]="product.title" />
-    <h5>{{ product.title }}</h5>
-  </section>
-  <section class="cart-body" [routerLink]="['/details', product.id]">
-    <p>{{ product.description }}</p>
-  </section>
-  <section class="cart-footer">
-    <button type="button" *ngIf="!isAddButton2" (click)="isAddButton2 = true">
-      Add cart
-    </button>
-    <div style="display: flex" *ngIf="isAddButton2">
-      <input type="number" style="width: 50%" [(ngModel)]="amount" min="1" />
-      <button type="button" (click)="add(); isAddButton2 = false">add</button>
+    <div>
+      <h1>{{ product.title }}</h1>
     </div>
-    <span>{{ product.price }}</span>
-  </section>
-</div>
+  </div>
+  <div class="cart-body" [routerLink]="['/details', product.id]">
+    <p class="cart-body-description">
+      {{ product.description }}
+    </p>
+  </div>
+  <div class="cart-footer">
+    <button
+      type="button"
+      class="btn-1"
+      *ngIf="!isAddButton2"
+      (click)="isAddButton2 = true"
+    >
+      Add
+    </button>
+    <section class="flex justify-between w-1/2" *ngIf="isAddButton2">
+      <input
+        type="number"
+        class="cart-footer-input"
+        [(ngModel)]="amount"
+        min="1"
+      />
+      <button type="button" class="btn-2" (click)="add(); isAddButton2 = false">
+        Add
+      </button>
+    </section>
+    <span>{{ product.price }} EL</span>
+  </div>
+</main>
