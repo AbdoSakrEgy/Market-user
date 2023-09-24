@@ -1,0 +1,39 @@
+File structure:-
+
+-products
+	components:
+		-all products
+		-products details
+	services:
+		-product.service
+-carts
+	components:
+		-cart
+	services:
+		-cart.service
+-shared
+	component:
+		-header
+	services:
+
+============================
+Cart actions:-
+
+-list all cart products
+-get items price total
+-plus/mins amount	
+-detect amount input change
+-delete product
+-clear cart
+-get cart products length
+-send cart to backend api
+
+
+
+
+
+
+
+
+
+
