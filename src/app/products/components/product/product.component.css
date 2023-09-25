@@ -1,44 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer components {
+  .cart {
+    @apply flex flex-col border rounded-lg w-56 h-96 hover:scale-[1.03] transition duration-200 ease-in-out;
+  }
+  .cart-header {
+    @apply h-[60%] text-xs hover:cursor-pointer;
+  }
+  .cart-header img {
+    @apply h-[80%] m-auto p-3;
+  }
+  .cart-header div {
+    @apply px-3 flex justify-start items-center h-[20%] bg-[#ddd];
+  }
+  .cart-body {
+    @apply px-3 py-2 h-[25%] text-xs hover:cursor-pointer;
+  }
+  .cart-footer {
+    @apply h-[15%] flex justify-between items-center px-3;
+  }
+  .btn-1 {
+    @apply rounded-md bg-green-400 text-white w-20 p-1;
+  }
+  /*  */
+  .cart-footer-input {
+    @apply border text-xs w-14 rounded-md outline-none p-1;
+  }
+  .btn-2 {
+    @apply rounded-md bg-green-400 text-white w-10 text-sm p-1;
+  }
+  .disapled {
+    @apply rounded-md bg-green-200 text-white w-10 text-sm p-1;
+  }
+}
 
-.cart {
-  @apply flex flex-col border rounded-lg w-56 h-96 hover:scale-[1.03] transition duration-200 ease-in-out;
-}
-.cart-header {
-  @apply h-[60%] text-xs hover:cursor-pointer;
-}
-.cart-header img {
-  @apply h-[80%] m-auto p-3;
-}
-.cart-header div {
-  @apply px-3 flex justify-start items-center h-[20%] bg-[#ddd];
-}
 .cart-header h1 {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
-.cart-body {
-  @apply px-3 py-2 h-[25%] text-xs hover:cursor-pointer;
-}
+
 .cart-body-description {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
-}
-.cart-footer {
-  @apply h-[15%] flex justify-between items-center px-3;
-}
-.btn-1 {
-  @apply rounded-md bg-green-400 text-white w-20 p-1;
-}
-/*  */
-.cart-footer-input {
-  @apply border text-xs w-14 rounded-md outline-none p-1;
-}
-.btn-2 {
-  @apply rounded-md bg-green-400 text-white w-10 text-sm p-1;
 }

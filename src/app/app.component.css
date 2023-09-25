@@ -1,8 +1,5 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer components {}
-
-.container {
-  padding: 50px;
+@layer components {
 }

@@ -2,7 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer components {}
+@layer components {
+}
 
 body {
   padding: 0;

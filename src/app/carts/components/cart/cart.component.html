@@ -2,8 +2,8 @@
   <h1>Shopping cart</h1>
   <div class="cart-header">
     <p>
-      You have <span class="text-[#950b0b]">{{ cartProducts.length }}</span> items
-      in your cart
+      You have <span class="text-[#950b0b]">{{ numOfProudcts }}</span> items in
+      your cart
     </p>
     <button (click)="clearCart()">Clear shopping cart</button>
   </div>
@@ -27,13 +27,35 @@
         <td>{{ obj.item.price }}</td>
         <td>
           <section class="cart-body-quantity">
-            <button (click)="incAmount(index)">+</button>
+            <button
+              type="button"
+              (click)="incAmount(index)"
+              [disabled]="obj.quantity >= 5"
+              [class]="{
+                'quantity-button': obj.quantity < 5,
+                'quantity-button-disabled': obj.quantity >= 5
+              }"
+            >
+              +
+            </button>
             <input
               type="number"
               [(ngModel)]="obj.quantity"
-              (change)="changeAmount()"
+              (change)="changeAmount($event, index)"
+              min="1"
+              max="5"
             />
-            <button (click)="decAmount(index)">-</button>
+            <button
+              type="button"
+              (click)="decAmount(index)"
+              [disabled]="obj.quantity <= 1"
+              [class]="{
+                'quantity-button': obj.quantity > 1,
+                'quantity-button-disabled': obj.quantity <= 1
+              }"
+            >
+              -
+            </button>
           </section>
         </td>
         <td>{{ obj.item.price * obj.quantity }}</td>

@@ -10,8 +10,10 @@ export class CartComponent {
   cartProducts: any[] = [];
   totalPrice: number = 0;
   isOrderSuccess: boolean = false;
+  numOfProudcts: number = 0;
 
-  constructor(private cartsService: CartsService) {
+  constructor(private cartsService: CartsService) {}
+  ngOnInit() {
     this.getCartProducts();
     this.getTotalPrice();
   }
@@ -30,24 +32,26 @@ export class CartComponent {
     } else {
       this.totalPrice = 0;
     }
+    this.getNumOfProducts();
   }
   incAmount(index: any) {
-    if (this.cartProducts.length > 0) {
-      this.cartProducts[index].quantity++;
-      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
-      this.getTotalPrice();
-    }
+    this.cartProducts[index].quantity++;
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    this.getTotalPrice();
   }
   decAmount(index: any) {
-    if (this.cartProducts.length > 0) {
-      this.cartProducts[index].quantity--;
-      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
-      this.getTotalPrice();
-    }
-  }
-  changeAmount() {
-    this.getTotalPrice();
+    this.cartProducts[index].quantity--;
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    this.getTotalPrice();
+  }
+  changeAmount(event: any, index: number) {
+    if (event.target.value > 5 || event.target.value < 0) {
+      this.cartProducts[index].quantity = 5;
+      alert('The maximum number available for this product is 5');
+    } else {
+      this.getTotalPrice();
+      localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+    }
   }
   deleteProduct(index: any) {
     this.cartProducts.splice(index, 1);
@@ -77,5 +81,11 @@ export class CartComponent {
     this.cartsService.addNewCart(Model).subscribe((res) => {
       this.isOrderSuccess = true;
     });
+  }
+  getNumOfProducts() {
+    this.numOfProudcts = 0;
+    for (let i = 0; i < this.cartProducts.length; i++) {
+      this.numOfProudcts += this.cartProducts[i].quantity;
+    }
   }
 }

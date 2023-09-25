@@ -1,13 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.product-details-container {
-  @apply flex justify-center items-center gap-10 mt-10;
-}
-img {
-  @apply w-1/3 object-cover;
-}
-.product-details-data {
-  @apply flex flex-col gap-3 w-1/2;
+@layer components {
+  .product-details-container {
+    @apply flex justify-center items-center gap-10 mt-10;
+  }
+  img {
+    @apply w-1/3 object-cover;
+  }
+  .product-details-data {
+    @apply flex flex-col gap-3 w-1/2;
+  }
 }

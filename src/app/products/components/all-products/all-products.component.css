@@ -1,11 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer components {}
-
-.carts-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 30px;
+@layer components {
+  .all-products-container {
+    @apply px-20 py-10;
+  }
+  .carts-container {
+    @apply flex justify-between flex-wrap gap-5;
+  }
 }
