@@ -13,7 +13,7 @@ An angular application for browsing products, adding them to cart, and checking 
 - TailwindCSS
 
 ## DEMO
-https://abdosakregy.github.io/Market/products
+https://market-user.netlify.app/
 
 ## Getting Started
 
