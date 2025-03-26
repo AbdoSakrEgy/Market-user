@@ -1,4 +1,4 @@
-# Market
+# Market-user
 
 An angular application for browsing products, adding them to cart, and checking out.
 
